@@ -12,8 +12,6 @@ function returnJSON($array=[]){
     
     echo json_encode($array);
 }
-// $data = ["name"=>"Ahmad"];
-// returnJSON($data);
 function getMultiField ($query) {
     global $con;
     $query = $con->query($query);
@@ -30,5 +28,4 @@ function getOneField ($query) {
 
     return $res;
 }
-returnJSON(getOneField("Select * from hotels"));
 ?>
