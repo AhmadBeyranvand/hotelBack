@@ -6,9 +6,9 @@ $pass = "1881";
 
 $con = new mysqli($host, $user, $pass, $db);
 
+header("Content-Type:application/json");
+header("Access-Control-Allow-Origin: *");
 function returnJSON($array=[]){
-    header("Content-Type:application/json");
-    header("Acces-Control-Allow-Origin: *");
     
     echo json_encode($array);
 }
@@ -27,5 +27,10 @@ function getOneField ($query) {
     $res = $query->fetch_assoc();
 
     return $res;
+}
+function runQuery ($query) {
+    global $con;
+    $query = $con->query($query);
+    return $query;
 }
 ?>
